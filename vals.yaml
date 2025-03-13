@@ -1,0 +1,18 @@
+syncstorage:
+  domain: https://fx-sync.pve.dev
+  keepGeneratedSecrets: true
+
+syncserverdb:
+  primary:
+    persistence:
+      selector:
+        matchLabels:
+          app: "fx-syncstorage"
+          backs: "syncserver"
+tokenserverdb:
+  primary:
+    persistence:
+      selector:
+        matchLabels:
+          app: "fx-syncstorage"
+          backs: "tokenserver"
