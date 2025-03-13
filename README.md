@@ -24,7 +24,12 @@ helm install fx-syncstorage holysoles/fx-syncstorage --set syncserverdb.primary.
 
 # Notes
 
-This chart currently uses the `0.13.6` version tag of the the `mozilla/syncstorage-rs` Docker image. However this is not the latest version. [There is an issue open tracking the problem](https://github.com/mozilla-services/syncstorage-rs/issues/1511), which prevents a database connection to non-Spanner DBs. If you decide to use a custom DB URL that connects to a Spanner instance, then you can probably use the latest version.
+This chart currently uses [a community image](https://github.com/porelli/firefox-sync) maintained by @porelli. This is due to two reasons:
+
+- Mozilla explicity says their Docker image is not recommended for use in a production system.
+- The official image has not been compatible with mysql since `0.13.6`. (See issues: [one](https://github.com/mozilla-services/syncstorage-rs/issues/1511), [two](https://github.com/mozilla-services/syncstorage-rs/issues/1482)).
+  - If you plan to use a Spanner DB, then you can probably use the official image.
+
 
 This chart defaults to deploying mysql instances with automatically configured credentials for the 2 required databases (though there was a discussion somewhere about if 2 separate databases are _truly_ necessary..). This helps reduce the amount of values you need to customize in your values file. To perform that automatic credential provisioning, due to limitations of Helm's `lookup` function, a service account is provisioned with the ability to _create_ secrets in the namespace where you deploy this chart to create the DB connection URLs secret during install, so it is recommended to deploy this chart to its own namespace.
 

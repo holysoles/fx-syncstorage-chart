@@ -1,8 +1,14 @@
 # fx-syncstorage
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.13.6](https://img.shields.io/badge/AppVersion-0.13.6-informational?style=flat-square)
+![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: syncstorage-rs-mysql-0.18.2](https://img.shields.io/badge/AppVersion-syncstorage--rs--mysql--0.18.2-informational?style=flat-square)
 
 Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization.
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| holysoles |  | <https://github.com/holysoles> |
 
 ## Requirements
 
@@ -18,7 +24,7 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 | affinity | object | `{}` | affinity for the syncstorage Deployment. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"mozilla/syncstorage-rs"` |  |
+| image.repository | string | `"ghcr.io/porelli/firefox-sync"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
