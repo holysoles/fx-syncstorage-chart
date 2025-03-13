@@ -5,13 +5,13 @@ Helm chart for [Mozilla's Rust based Sync server](https://github.com/mozilla-ser
 
 ```shell
 # add the chart repo
-helm repo add fx-syncstorage https://github.com/holysoles/fx-syncstorage-chart
+helm repo add fx-syncstorage https://holysoles.github.io/fx-syncstorage-chart/
 
 # Customize the values file. Particularly make sure you update syncstorage.domain!
 helm show values fx-syncstorage/fx-syncstorage > values.yaml
 
 # install the chart
-helm install --namespace fx-syncstorage --create-namespace fx-sync/fx-syncstorage --values values.yaml
+helm install --namespace fx-syncstorage --create-namespace fx-syncstorage/fx-syncstorage --values values.yaml
 ```
 
 By default, this chart deploys 2 mysql instances with persistence for the Syncserver Tokenserver DBs. Credentials are automatically configured and stored in secrets.
