@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "fx-syncstorage.labels" . | nindent 4 }}
+data:
+  DOMAIN: {{ .Values.syncstorage.domain }}
+  SYNC_HOST: {{ .Values.syncstorage.host | quote }}
+  SYNC_HUMAN_LOGS: {{ .Values.syncstorage.humanLogs | quote }}
+  SYNC_TOKENSERVER__ENABLED: "true"
+  SYNC_TOKENSERVER__RUN_MIGRATIONS: {{ .Values.syncstorage.tokenserver.runMigrations | quote }}
+  SYNC_TOKENSERVER__NODE_TYPE: {{ .Values.syncstorage.tokenserver.nodeType }}
+  SYNC_TOKENSERVER__FXA_EMAIL_DOMAIN: {{ .Values.syncstorage.tokenserver.fxaEmailDomain }}
+  SYNC_TOKENSERVER__FXA_OAUTH_SERVER_URL: {{ .Values.syncstorage.tokenserver.fxaOauthServerUrl }}
+  SYNC_TOKENSERVER__ADDITIONAL_BLOCKING_THREADS_FOR_FXA_REQUESTS: {{ .Values.syncstorage.tokenserver.additionalBlockingThreadsForFxaRequests | quote }}
+  RUST_LOG:  {{ .Values.syncstorage.rustLogLevel }}

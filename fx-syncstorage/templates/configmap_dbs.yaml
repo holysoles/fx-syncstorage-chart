@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-db" .Release.Name }}
+  labels:
+    {{- include "fx-syncstorage.labels" . | nindent 4 }}
+data:
+  DOMAIN: {{ .Values.syncstorage.domain }}
