@@ -90,3 +90,10 @@ true
 {{- else }}
 {{- end }}
 {{- end }}
+
+{{/*
+Test required parameters
+*/}}
+{{- if not .Values.syncstorage.domain }}
+{{- fail "syncstorage.domain must be set!" }}
+{{- end }}
