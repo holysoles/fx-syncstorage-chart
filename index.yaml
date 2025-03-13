@@ -3,6 +3,28 @@ entries:
   fx-syncstorage:
   - apiVersion: v2
     appVersion: 0.13.6
+    created: "2025-03-13T14:38:11.759806288Z"
+    dependencies:
+    - alias: syncserverdb
+      condition: sync-db.enabled
+      name: mysql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.3.1
+    - alias: tokenserverdb
+      condition: okenserver-db.enabled
+      name: mysql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.3.1
+    description: Helm chart for Mozilla's Rust based Sync server for Firefox data
+      synchronization.
+    digest: ce0f281990c366126bcc98d9601642923502b81f3f819ee2be5ae028f07c1f9b
+    name: fx-syncstorage
+    type: application
+    urls:
+    - https://github.com/holysoles/fx-syncstorage-chart/releases/download/fx-syncstorage-0.1.4/fx-syncstorage-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.13.6
     created: "2025-03-13T04:41:11.158393099Z"
     dependencies:
     - alias: syncserverdb
@@ -45,4 +67,4 @@ entries:
     urls:
     - https://github.com/holysoles/fx-syncstorage-chart/releases/download/fx-syncstorage-0.1.2/fx-syncstorage-0.1.2.tgz
     version: 0.1.2
-generated: "2025-03-13T04:41:11.158405703Z"
+generated: "2025-03-13T14:38:11.759821547Z"
