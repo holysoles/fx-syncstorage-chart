@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "fx-syncstorage.labels" . | nindent 4 }}
 data:
-  DOMAIN: {{ .Values.syncstorage.domain }}
+  DOMAIN: {{ .Values.syncstorage.domain | quote }}
   SYNC_HOST: {{ .Values.syncstorage.host | quote }}
   SYNC_HUMAN_LOGS: {{ .Values.syncstorage.humanLogs | quote }}
   SYNC_TOKENSERVER__ENABLED: "true"
