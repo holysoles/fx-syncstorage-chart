@@ -1,6 +1,6 @@
 # fx-syncstorage
 
-![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: syncstorage-rs-mysql-0.18.2](https://img.shields.io/badge/AppVersion-syncstorage--rs--mysql--0.18.2-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: syncstorage-rs-mysql-0.19.1](https://img.shields.io/badge/AppVersion-syncstorage--rs--mysql--0.19.1-informational?style=flat-square)
 
 Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization.
 
@@ -14,8 +14,8 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 
 | Repository | Name | Version |
 |------------|------|---------|
-| oci://registry-1.docker.io/bitnamicharts | syncserverdb(mysql) | 12.3.1 |
-| oci://registry-1.docker.io/bitnamicharts | tokenserverdb(mysql) | 12.3.1 |
+| oci://registry-1.docker.io/bitnamicharts | syncserverdb(mysql) | 14.0.2 |
+| oci://registry-1.docker.io/bitnamicharts | tokenserverdb(mysql) | 14.0.2 |
 
 ## Values
 
@@ -23,6 +23,7 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 |-----|------|---------|-------------|
 | affinity | object | `{}` | affinity for the syncstorage Deployment. |
 | fullnameOverride | string | `""` |  |
+| global.security.allowInsecureImages | bool | `true` |  allows the subcharts to pull an image from a docker repository other than 'bitnami'. Needed for 'bitnami-legacy' workaround.|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/porelli/firefox-sync"` |  |
 | image.tag | string | `""` |  |
@@ -56,6 +57,7 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 | syncserverdb.auth.username | string | `"syncuser"` |  |
 | syncserverdb.enabled | bool | `true` | Enable the bundled [mysql subchart from bitnami](https://github.com/bitnami/charts/tree/main/bitnami/mysql) for the sync server DB. |
 | syncserverdb.extraFlags | list | `["--explicit_defaults_for_timestamp"]` | MySQL secondary additional command line flags |
+| syncserverdb.image.repository | string | `"bitnamilegacy/mysql"` |  |
 | syncserverdb.primary.persistence.enabled | bool | `true` |  |
 | syncserverdb.primary.persistence.size | string | `"4Gi"` |  |
 | syncserverdb.primary.persistence.storageClass | string | `""` |  |
@@ -80,6 +82,7 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 | tokenserverdb.auth.username | string | `"tokenuser"` |  |
 | tokenserverdb.enabled | bool | `true` | Enable the bundled [mysql subchart from bitnami](https://github.com/bitnami/charts/tree/main/bitnami/mysql) for the token server DB. |
 | tokenserverdb.extraFlags | list | `["--explicit_defaults_for_timestamp"]` | MySQL secondary additional command line flags |
+| tokenserverdb.image.repository | string | `"bitnamilegacy/mysql"` |  |
 | tokenserverdb.primary.persistence.enabled | bool | `true` |  |
 | tokenserverdb.primary.persistence.size | string | `"4Gi"` |  |
 | tokenserverdb.primary.persistence.storageClass | string | `""` |  |

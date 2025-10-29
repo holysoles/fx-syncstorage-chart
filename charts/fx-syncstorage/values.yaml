@@ -142,9 +142,16 @@ syncstorage:
   # -- Rust log level
   rustLogLevel: info
 
+# Override bitnami checks for "secure" images so we can use their legacy docker repo
+global:
+  security:
+    allowInsecureImages: true
+
 syncserverdb:
   # -- Enable the bundled [mysql subchart from bitnami](https://github.com/bitnami/charts/tree/main/bitnami/mysql) for the sync server DB.
   enabled: true
+  image:
+    repository: bitnamilegacy/mysql
   architecture: standalone
   auth:
     database: "syncstorage"
@@ -163,6 +170,8 @@ syncserverdb:
 tokenserverdb:
   # -- Enable the bundled [mysql subchart from bitnami](https://github.com/bitnami/charts/tree/main/bitnami/mysql) for the token server DB.
   enabled: true
+  image:
+    repository: bitnamilegacy/mysql
   architecture: standalone
   auth:
     database: "tokenserver"
