@@ -1,6 +1,6 @@
 # fx-syncstorage
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: syncstorage-rs-mysql-0.19.1](https://img.shields.io/badge/AppVersion-syncstorage--rs--mysql--0.19.1-informational?style=flat-square)
+![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: de108fda99](https://img.shields.io/badge/AppVersion-de108fda99-informational?style=flat-square)
 
 Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization.
 
@@ -23,9 +23,9 @@ Helm chart for Mozilla's Rust based Sync server for Firefox data synchronization
 |-----|------|---------|-------------|
 | affinity | object | `{}` | affinity for the syncstorage Deployment. |
 | fullnameOverride | string | `""` |  |
-| global.security.allowInsecureImages | bool | `true` |  allows the subcharts to pull an image from a docker repository other than 'bitnami'. Needed for 'bitnami-legacy' workaround.|
+| global.security.allowInsecureImages | bool | `true` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/porelli/firefox-sync"` |  |
+| image.repository | string | `"ghcr.io/mozilla-services/syncstorage-rs/syncserver-mysql"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
